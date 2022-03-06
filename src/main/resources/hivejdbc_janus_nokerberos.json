@@ -1,0 +1,314 @@
+{
+    "envId": 48,
+    "taskId": 1324,
+    "taskInstanceId": 5220,
+    "trTaskInstanceId": null,
+    "version": "1.0",
+    "taskName": "dmc_bigdata_test_new.yangsanqiang_invest",
+    "taskType": "ETL",
+    "errorInfo": {
+        "dirtyData": {
+            "storeType": "FILE",
+            "handleMode": -1,
+            "storeEnabled": true,
+            "storeRowsLimit": 1,
+            "inboundTaskId": null,
+            "taskInstanceId": "5220",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_47/kip/atlas-flow-apps/etl//1324/5220/dirty_data"
+            }
+        },
+        "logInfo": {
+            "storeType": "FILE",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_47/kip/atlas-flow-apps/etl//1324/5220/log_info"
+            }
+        },
+        "metricConfig": null,
+        "consistency": {
+            "storeType": "FILE",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_47/kip/atlas-flow-apps/etl//1324/5220/consistency"
+            }
+        }
+    },
+    "source": {
+        "dsType": null,
+        "mysql": null,
+        "oracle": null,
+        "hiveSQL": null,
+        "storeType": "HIVE_JDBC",
+        "sourceConfig": {
+            "jdbcUrl": "jdbc:hive2://192.168.1.131:10000/default",
+            "userName": null,
+            "passWord": null,
+            "table": null,
+            "querySql": "SELECT `_from`,`_to`,`_key`,`ctime`,`from_key`,`invest_amount`,`invest_amount_unit`,`object_key`,`paid_amount`,`paid_amount_unit`,`shareholder_type`,`to_key`,`utime` FROM dmc_bigdata_test_new.yangsanqiang_invest",
+            "splitPk": null,
+            "partitions": 1,
+            "principal": null,
+            "config": null,
+            "encryptionType": "AES"
+        }
+    },
+    "sinks": [
+        {
+            "storeConfig": {
+                "graphElement": "vertex",
+                "label": "hivejdbc_yangsanqiang",
+                "graph": {
+                    "cache.db-cache": "false",
+                    "schema.default": "default",
+                    "index.search.port": "9200",
+                    "index.search.backend": "elasticsearch",
+                    "cache.db-cache-size": "0.3",
+                    "storage.hbase.ext.hbase.zookeeper.property.clientPort": "2181",
+                    "storage.hbase.table": "etl_janus_test",
+                    "cache.db-cache-clean-wait": "20",
+                    "cache.db-cache-time": "180000",
+                    "index.search.hostname": "192.168.1.165",
+                    "storage.hostname": "192.168.1.131,192.168.1.132,192.168.1.134",
+                    "storage.backend": "hbase",
+                    "gremlin.graph": "org.janusgraph.core.JanusGraphFactory"
+                },
+                "database": "etl_janus_test",
+                "importBatchSize": 2000,
+                "password": "123456",
+                "poolSize": 10,
+                "url": "192.168.1.133:8183",
+                "user": "haizhi"
+            },
+            "operation": "OVERWRITE",
+            "storeType": "JANUS"
+        }
+    ],
+    "gapConfig": {
+        "errorMode": -1,
+        "errorStoreEnabled": true,
+        "errorStoreRowsLimit": 1,
+        "operationField": null,
+        "fieldMapping": {
+            "to_key": [
+                "to_key"
+            ],
+            "invest_amount_unit": [
+                "invest_amount_unit"
+            ],
+            "paid_amount_unit": [
+                "paid_amount_unit"
+            ],
+            "_from": [
+                "_from"
+            ],
+            "object_key": [
+                "object_key"
+            ],
+            "invest_amount": [
+                "invest_amount"
+            ],
+            "utime": [
+                "utime"
+            ],
+            "shareholder_type": [
+                "shareholder_type"
+            ],
+            "_key": [
+                "_key"
+            ],
+            "paid_amount": [
+                "paid_amount"
+            ],
+            "ctime": [
+                "ctime"
+            ],
+            "_to": [
+                "_to"
+            ],
+            "from_key": [
+                "from_key"
+            ]
+        },
+        "inboundTaskId": null,
+        "taskInstanceId": "5220",
+        "schema": {
+            "fields": {
+                "to_key": {
+                    "id": 11800,
+                    "isMain": "N",
+                    "name": "to_key",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "UNIQUE_TO_KEY",
+                    "functions": null
+                },
+                "invest_amount_unit": {
+                    "id": 11796,
+                    "isMain": "N",
+                    "name": "invest_amount_unit",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "paid_amount_unit": {
+                    "id": 11798,
+                    "isMain": "N",
+                    "name": "paid_amount_unit",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_from": {
+                    "id": 11790,
+                    "isMain": "N",
+                    "name": "_from",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "object_key": {
+                    "id": 11788,
+                    "isMain": "Y",
+                    "name": "object_key",
+                    "required": "Y",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "UNIQUE_KEY",
+                    "functions": null
+                },
+                "invest_amount": {
+                    "id": 11795,
+                    "isMain": "N",
+                    "name": "invest_amount",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "utime": {
+                    "id": 11801,
+                    "isMain": "N",
+                    "name": "utime",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_tags": {
+                    "id": 11789,
+                    "isMain": "N",
+                    "name": "_tags",
+                    "required": "N",
+                    "originType": "ARRAY",
+                    "type": "ARRAY",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "shareholder_type": {
+                    "id": 11799,
+                    "isMain": "N",
+                    "name": "shareholder_type",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_key": {
+                    "id": 11792,
+                    "isMain": "N",
+                    "name": "_key",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "paid_amount": {
+                    "id": 11797,
+                    "isMain": "N",
+                    "name": "paid_amount",
+                    "required": "N",
+                    "originType": "DOUBLE",
+                    "type": "DOUBLE",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "ctime": {
+                    "id": 11793,
+                    "isMain": "N",
+                    "name": "ctime",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_to": {
+                    "id": 11791,
+                    "isMain": "N",
+                    "name": "_to",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "from_key": {
+                    "id": 11794,
+                    "isMain": "N",
+                    "name": "from_key",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "UNIQUE_FROM_KEY",
+                    "functions": null
+                }
+            },
+            "graphId": 117,
+            "id": 1418,
+            "type": "vertex",
+            "useGdb": "Y",
+            "useHBase": "N",
+            "useSearch": "Y"
+        }
+    },
+    "sparkConfig": null,
+    "extParams": null
+}

@@ -1,0 +1,390 @@
+{
+    "envId": 48,
+    "taskId": 1293,
+    "taskInstanceId": 6208,
+    "trTaskInstanceId": null,
+    "version": "1.0",
+    "taskName": "test_resource_bigdata.Company",
+    "hadoopUserName": "kgp",
+    "taskType": "ETL",
+    "errorInfo": {
+        "dirtyData": {
+            "storeType": "FILE",
+            "handleMode": -1,
+            "storeEnabled": true,
+            "storeRowsLimit": 1,
+            "inboundTaskId": null,
+            "taskInstanceId": "6208",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_47/kip/atlas-flow-apps/etl//1293/6208/dirty_data"
+            }
+        },
+        "logInfo": {
+            "storeType": "FILE",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_47/kip/atlas-flow-apps/etl//1293/6208/log_info"
+            }
+        },
+        "metricConfig": null,
+        "consistency": {
+            "storeType": "FILE",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_47/kip/atlas-flow-apps/etl//1293/6208/consistency"
+            }
+        }
+    },
+    "source": {
+        "dsType": null,
+        "mysql": null,
+        "oracle": null,
+        "hiveSQL": null,
+        "storeType": "MYSQL",
+        "sourceConfig": {
+            "jdbcUrl": "jdbc:mysql://192.168.1.56:3306?zeroDateTimeBehavior=convertToNull",
+            "userName": "MCR9iVotvI6Mch13zhdljHslcYeVlimJCM96qBnFEVQ=",
+            "passWord": "OLzyme+dCzRWgznBjiniTg==",
+            "table": null,
+            "querySql": "SELECT `object_key`,`_key`,`_rev`,`address`,`business_status`,`capital`,`city`,`contact`,`ctime`,`enterprise_type`,`industry`,`is_listed`,`name`,`operation_startdate`,`province`,`registered_address`,`registered_capital_unit`,`utime` FROM test_resource_bigdata.Company",
+            "splitPk": null,
+            "partitions": 1,
+            "config": null,
+            "encryptionType": "AES"
+        }
+    },
+    "sinks": [
+        {
+            "storeConfig": {
+                "graphElement": "vertex",
+                "label": "mysql_company",
+                "graph": {
+                    "cache.db-cache": "false",
+                    "schema.default": "default",
+                    "index.search.port": "9200",
+                    "index.search.backend": "elasticsearch",
+                    "cache.db-cache-size": "0.3",
+                    "storage.hbase.ext.hbase.zookeeper.property.clientPort": "2181",
+                    "storage.hbase.table": "rtd",
+                    "cache.db-cache-clean-wait": "20",
+                    "cache.db-cache-time": "180000",
+                    "index.search.hostname": "192.168.1.165",
+                    "storage.hostname": "192.168.1.131,192.168.1.132,192.168.1.134",
+                    "storage.backend": "hbase",
+                    "gremlin.graph": "org.janusgraph.core.JanusGraphFactory"
+                },
+                "database": "rtd",
+                "importBatchSize": 2000,
+                "password": "123456",
+                "poolSize": 10,
+                "url": "192.168.1.133:8183",
+                "user": "haizhi"
+            },
+            "operation": "OVERWRITE",
+            "storeType": "JANUS"
+        }
+    ],
+    "gapConfig": {
+        "errorMode": -1,
+        "errorStoreEnabled": true,
+        "errorStoreRowsLimit": 1,
+        "operationField": null,
+        "fieldMapping": {
+            "enterprise_type": [
+                "enterprise_type"
+            ],
+            "capital": [
+                "capital"
+            ],
+            "is_listed": [
+                "is_listed"
+            ],
+            "registered_address": [
+                "registered_address"
+            ],
+            "address": [
+                "address"
+            ],
+            "object_key": [
+                "object_key"
+            ],
+            "business_status": [
+                "business_status"
+            ],
+            "utime": [
+                "utime"
+            ],
+            "city": [
+                "city"
+            ],
+            "_rev": [
+                "_rev"
+            ],
+            "industry": [
+                "industry"
+            ],
+            "_key": [
+                "_key"
+            ],
+            "operation_startdate": [
+                "operation_startdate"
+            ],
+            "province": [
+                "province"
+            ],
+            "contact": [
+                "contact"
+            ],
+            "name": [
+                "name"
+            ],
+            "ctime": [
+                "ctime"
+            ],
+            "registered_capital_unit": [
+                "registered_capital_unit"
+            ]
+        },
+        "inboundTaskId": null,
+        "taskInstanceId": "6208",
+        "schema": {
+            "fields": {
+                "enterprise_type": {
+                    "id": 11210,
+                    "isMain": "N",
+                    "name": "enterprise_type",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "capital": {
+                    "id": 11206,
+                    "isMain": "N",
+                    "name": "capital",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "address": {
+                    "id": 11204,
+                    "isMain": "N",
+                    "name": "address",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "is_listed": {
+                    "id": 11212,
+                    "isMain": "N",
+                    "name": "is_listed",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "registered_address": {
+                    "id": 11216,
+                    "isMain": "N",
+                    "name": "registered_address",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "object_key": {
+                    "id": 11199,
+                    "isMain": "Y",
+                    "name": "object_key",
+                    "required": "Y",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "UNIQUE_KEY",
+                    "functions": null
+                },
+                "business_status": {
+                    "id": 11205,
+                    "isMain": "N",
+                    "name": "business_status",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "city": {
+                    "id": 11207,
+                    "isMain": "N",
+                    "name": "city",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "utime": {
+                    "id": 11218,
+                    "isMain": "N",
+                    "name": "utime",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_tags": {
+                    "id": 11200,
+                    "isMain": "N",
+                    "name": "_tags",
+                    "required": "N",
+                    "originType": "ARRAY",
+                    "type": "ARRAY",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_rev": {
+                    "id": 11203,
+                    "isMain": "N",
+                    "name": "_rev",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "industry": {
+                    "id": 11211,
+                    "isMain": "N",
+                    "name": "industry",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_key": {
+                    "id": 11202,
+                    "isMain": "N",
+                    "name": "_key",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "operation_startdate": {
+                    "id": 11214,
+                    "isMain": "N",
+                    "name": "operation_startdate",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "province": {
+                    "id": 11215,
+                    "isMain": "N",
+                    "name": "province",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "contact": {
+                    "id": 11208,
+                    "isMain": "N",
+                    "name": "contact",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "name": {
+                    "id": 11213,
+                    "isMain": "N",
+                    "name": "name",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "ctime": {
+                    "id": 11209,
+                    "isMain": "N",
+                    "name": "ctime",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "registered_capital_unit": {
+                    "id": 11217,
+                    "isMain": "N",
+                    "name": "registered_capital_unit",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                }
+            },
+            "graphId": 120,
+            "id": 1370,
+            "name": "Company1",
+            "type": "vertex",
+            "useGdb": "Y",
+            "useHBase": "N",
+            "useSearch": "Y"
+        }
+    },
+    "sparkConfig": null,
+    "extParams": null
+}

@@ -1,0 +1,184 @@
+{
+    "envId":1,
+    "taskId":36,
+    "taskInstanceId":154,
+    "trTaskInstanceId":null,
+    "version":"1.0",
+    "taskName":"xybank.tv_train",
+    "hadoopUserName":"kgp",
+    "taskType":"ETL",
+    "errorInfo":{
+        "dirtyData":{
+            "storeType":"FILE",
+            "handleMode":-1,
+            "storeEnabled":true,
+            "storeRowsLimit":1,
+            "inboundTaskId":null,
+            "taskInstanceId":"154",
+            "config":{
+                "path":"hdfs:///user/kgp/taurus/task/12/139/dirty_data",
+                "address":"http://192.168.1.114:10030",
+                "resource": {"name":"receiveErrorLog","path":"/api/task/receiveErrorLogs"},
+                "paramConfig":{"graph":"test_pxb","schema":"tv_train"},
+                "headers":[],
+                "requestMethod":"POST"
+            }
+        },
+        "logInfo":{
+            "storeType":"FILE",
+            "config":{
+                "path":"hdfs:///user/kgp/taurus/task/12/139/log_info",
+                "address":"http://192.168.1.114:10030",
+                "resource": {"name":"receiveErrorLog","path":"/api/task/receiveErrorLogs"},
+                "paramConfig":{"graph":"test_pxb","schema":"tv_train"},
+                "headers":[],
+                "requestMethod":"POST"
+            }
+        },
+        "metricConfig":{
+            "storeType":"REDIS_LOCAL",
+            "config":{
+                "password":null,
+                "database":0,
+                "clientName":null,
+                "ssl":false,
+                "url":"192.168.1.113:16379",
+                "timeout":5000
+            },
+            "metrics":{
+                "storagePath":"com:haizhi:taurus:metric:36:154",
+                "timeout":259200
+            }
+        },
+        "consistency":{
+            "storeType":"FILE",
+            "config":{
+                "path":"hdfs:///user/work/app/taurus/task/36/57/consistency"
+            }
+        }
+    },
+    "source": {
+        "sourceConfig": {
+            "driver":"com.haizhi.etl.kgp.source.hivejdbc.ETLHiveDriver",
+            "jdbcUrl": "jdbc:hive2://cdh01:10000/default;principal=hive/_HOST@HAIZHI.COM",
+            "jdbcUrl1": "jdbc:hive2://cmb01:10000/default",
+            "partitions": 3,
+            "passWord": "",
+            "principal": "kgp",
+            "principal1": "",
+            "querySql": "SELECT cc,cfzd,ddzd,object_key FROM spark_etl.tv_train_error",
+            "splitPk": "",
+            "table": "spark_etl.tv_train_hive_test",
+            "userName": "",
+            "fileConfig":{"krb5.conf":"W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gSEFJWkhJLkNPTQpkbnNfbG9va3VwX2tkYyA9IGZhbHNlCmRuc19sb29rdXBfcmVhbG0gPSBmYWxzZQp0aWNrZXRfbGlmZXRpbWUgPSA4NjQwMApyZW5ld19saWZldGltZSA9IDYwNDgwMApmb3J3YXJkYWJsZSA9IHRydWUKZGVmYXVsdF90Z3NfZW5jdHlwZXMgPSBhZXMxMjgtY3RzIGRlczMtaG1hYy1zaGExIGFyY2ZvdXItaG1hYyBjYW1lbGxpYTI1Ni1jdHMgY2FtZWxsaWExMjgtY3RzIGRlcy1obWFjLXNoYTEgZGVzLWNiYy1tZDUgZGVzLWNiYy1jcmMKZGVmYXVsdF90a3RfZW5jdHlwZXMgPSBhZXMxMjgtY3RzIGRlczMtaG1hYy1zaGExIGFyY2ZvdXItaG1hYyBjYW1lbGxpYTI1Ni1jdHMgY2FtZWxsaWExMjgtY3RzIGRlcy1obWFjLXNoYTEgZGVzLWNiYy1tZDUgZGVzLWNiYy1jcmMKcGVybWl0dGVkX2VuY3R5cGVzID0gYWVzMTI4LWN0cyBkZXMzLWhtYWMtc2hhMSBhcmNmb3VyLWhtYWMgY2FtZWxsaWEyNTYtY3RzIGNhbWVsbGlhMTI4LWN0cyBkZXMtaG1hYy1zaGExIGRlcy1jYmMtbWQ1IGRlcy1jYmMtY3JjCnVkcF9wcmVmZXJlbmNlX2xpbWl0ID0gMQprZGNfdGltZW91dCA9IDMwMDAKW3JlYWxtc10KSEFJWkhJLkNPTSA9IHsKa2RjID0gY2RoMDEKYWRtaW5fc2VydmVyID0gY2RoMDEKfQpbZG9tYWluX3JlYWxtXQo=",
+                "user.keytab":"BQIAAAA0AAEACkhBSVpISS5DT00AA2tncAAAAAFgiiIyAQARABB5CjGao56ygzJsZ9yXFrPwAAAAAQAAADwAAQAKSEFJWkhJLkNPTQADa2dwAAAAAWCKIjIBABAAGA0B2ZJix4x/8tBR1nmwO64++08QnQKRIwAAAAEAAAA0AAEACkhBSVpISS5DT00AA2tncAAAAAFgiiIyAQAXABAy7Ye9tf3F6cuohUc3aBjUAAAAAQAAAEQAAQAKSEFJWkhJLkNPTQADa2dwAAAAAWCKIjIBABoAIB3mSxIZ7DgzjJ+qMuMtQs65ds2oLThTKVGadE+A3DjPAAAAAQAAADQAAQAKSEFJWkhJLkNPTQADa2dwAAAAAWCKIjIBABkAEDenw0DEwbwMdb1WdnRw/hMAAAABAAAALAABAApIQUlaSEkuQ09NAANrZ3AAAAABYIoiMgEACAAImDEsWJFSZF4AAAABAAAALAABAApIQUlaSEkuQ09NAANrZ3AAAAABYIoiMgEAAwAIXmiugBYgjEoAAAAB"}
+        },
+        "storeType": "HIVE_JDBC"
+    },
+    "sinks":[
+        {
+            "storeConfig": {
+                "graphElement": "vertex",
+                "label": "customer_ads",
+                "graph": {
+                    "cache.db-cache": "false",
+                    "schema.default": "default",
+                    "index.search.port": "9200",
+                    "index.search.backend": "elasticsearch",
+                    "cache.db-cache-size": "0.3",
+                    "storage.hbase.ext.hbase.zookeeper.property.clientPort": "2181",
+                    "storage.hbase.table": "rtd",
+                    "cache.db-cache-clean-wait": "20",
+                    "cache.db-cache-time": "180000",
+                    "index.search.hostname": "192.168.1.165",
+                    "storage.hostname": "192.168.1.131,192.168.1.132,192.168.1.134",
+                    "storage.backend": "hbase",
+                    "gremlin.graph": "org.janusgraph.core.JanusGraphFactory"
+                },
+                "database": "rtd",
+                "importBatchSize": 2000,
+                "password": "123456",
+                "poolSize": 10,
+                "url": "192.168.1.133:8183",
+                "user": "haizhi"
+            },
+            "operation": "OVERWRITE",
+            "storeType": "JANUS"
+        }
+    ],
+    "gapConfig":{
+        "errorMode":-1,
+        "errorStoreEnabled":true,
+        "errorStoreRowsLimit":1,
+        "operationField":null,
+        "fieldMapping":{
+            "cc":[
+                "cc"
+            ],
+            "cfzd":[
+                "cfzd"
+            ],
+            "ddzd":[
+                "ddzd"
+            ],
+            "object_key":[
+                "object_key"
+            ]
+        },
+        "inboundTaskId":36,
+        "taskInstanceId":"154",
+        "schema":{
+            "fields":{
+                "cc":{
+                    "id":644,
+                    "isMain":"N",
+                    "name":"cc",
+                    "required":"N",
+                    "type":"STRING",
+                    "functionExpr":"",
+                    "fieldSign":"COMMON",
+                    "functions":null
+                },
+                "cfzd":{
+                    "id":645,
+                    "isMain":"N",
+                    "name":"cfzd",
+                    "required":"N",
+                    "type":"STRING",
+                    "functionExpr":"",
+                    "fieldSign":"COMMON",
+                    "functions":null
+                },
+                "object_key":{
+                    "id":642,
+                    "isMain":"Y",
+                    "name":"object_key",
+                    "required":"Y",
+                    "type":"STRING",
+                    "functionExpr":"",
+                    "fieldSign":"UNIQUE_KEY",
+                    "functions":null
+                },
+                "ddzd":{
+                    "id":646,
+                    "isMain":"N",
+                    "name":"ddzd",
+                    "required":"N",
+                    "type":"STRING",
+                    "functionExpr":"",
+                    "fieldSign":"COMMON",
+                    "functions":null
+                }
+            },
+            "graphId":11,
+            "id":65,
+            "name":"train",
+            "type":"vertex",
+            "useGdb":"Y",
+            "useHBase":"N",
+            "useSearch":"Y"
+        }
+    },
+    "sparkConfig":null,
+    "extParams":null
+}

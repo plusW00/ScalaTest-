@@ -1,0 +1,561 @@
+{
+    "envId": 12,
+    "taskId": 1200798,
+    "taskInstanceId": 3695,
+    "trTaskInstanceId": null,
+    "version": "1.0",
+    "taskName": "KPG_POLICE.实体-火车(1)-train",
+    "hadoopUserName": "kgp",
+    "taskType": "ETL",
+    "errorInfo": {
+        "dirtyData": {
+            "storeType": "FILE",
+            "handleMode": -1,
+            "storeEnabled": true,
+            "storeRowsLimit": 1,
+            "inboundTaskId": null,
+            "taskInstanceId": "3695",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_42/kip/atlas-flow-apps/etl//1200798/3695/dirty_data"
+            }
+        },
+        "logInfo": {
+            "storeType": "FILE",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_42/kip/atlas-flow-apps/etl//1200798/3695/log_info"
+            }
+        },
+        "metricConfig": null,
+        "consistency": {
+            "storeType": "FILE",
+            "config": {
+                "path": "hdfs:///user/kgp/kgp_42/kip/atlas-flow-apps/etl//1200798/3695/consistency"
+            }
+        }
+    },
+    "source": {
+        "dsType": null,
+        "mysql": null,
+        "oracle": null,
+        "hiveSQL": null,
+        "storeType": "ORACLE",
+        "sourceConfig": {
+            "jdbcUrl": "jdbc:oracle:thin:@192.168.1.112:1521/orcl",
+            "userName": "FPCRxr6VNyFgABi4DLZTsQ==",
+            "passWord": "FPCRxr6VNyFgABi4DLZTsQ==",
+            "table": null,
+            "querySql": "SELECT \"float_float\",\"float_int\",\"float_string\",\"datetime_datetime\",\"datetime_int\",\"datetime_string\",\"datetime_date\",\"date_date\",\"date_int\",\"date_string\",\"date_datetime\",\"number_number\",\"number_float\",\"numner_string\",\"number_date\",\"number_datetime\",\"stirng_int\",\"string_float\",\"string_array\",\"string_date\",\"string_string\",\"string_datetime\",\"object_key\",\"cc\",\"cfzd\",\"ddzd\",\"_tags\" FROM KPG_POLICE.\"实体-火车(1)-train\" where  (   \"object_key\" = 'adb406e99937f37506fa1cb03c8db52b'   ) ",
+            "splitPk": null,
+            "partitions": 1,
+            "config": null,
+            "encryptionType": "AES"
+        }
+    },
+    "sinks": [
+        {
+            "storeConfig": {
+                "graphElement": "vertex",
+                "label": "oracle_train",
+                "graph": {
+                    "cache.db-cache": "false",
+                    "schema.default": "default",
+                    "index.search.port": "9200",
+                    "index.search.backend": "elasticsearch",
+                    "cache.db-cache-size": "0.3",
+                    "storage.hbase.ext.hbase.zookeeper.property.clientPort": "2181",
+                    "storage.hbase.table": "rtd",
+                    "cache.db-cache-clean-wait": "20",
+                    "cache.db-cache-time": "180000",
+                    "index.search.hostname": "192.168.1.165",
+                    "storage.hostname": "192.168.1.131,192.168.1.132,192.168.1.134",
+                    "storage.backend": "hbase",
+                    "gremlin.graph": "org.janusgraph.core.JanusGraphFactory"
+                },
+                "database": "rtd",
+                "importBatchSize": 2000,
+                "password": "123456",
+                "poolSize": 10,
+                "url": "192.168.1.133:8183",
+                "user": "haizhi"
+            },
+            "operation": "OVERWRITE",
+            "storeType": "JANUS"
+        }
+    ],
+    "gapConfig": {
+        "errorMode": -1,
+        "errorStoreEnabled": true,
+        "errorStoreRowsLimit": 1,
+        "operationField": null,
+        "fieldMapping": {
+            "float_string": [
+                "float_string"
+            ],
+            "object_key": [
+                "object_key"
+            ],
+            "ddzd": [
+                "ddzd"
+            ],
+            "_tags": [
+                "_tags"
+            ],
+            "date_string": [
+                "date_string"
+            ],
+            "date_datetime": [
+                "date_datetime"
+            ],
+            "numner_string": [
+                "numner_string"
+            ],
+            "datetime_datetime": [
+                "datetime_datetime"
+            ],
+            "string_datetime": [
+                "string_datetime"
+            ],
+            "number_date": [
+                "number_date"
+            ],
+            "number_datetime": [
+                "number_datetime"
+            ],
+            "stirng_int": [
+                "stirng_int"
+            ],
+            "float_int": [
+                "float_int"
+            ],
+            "cc": [
+                "cc"
+            ],
+            "float_float": [
+                "float_float"
+            ],
+            "cfzd": [
+                "cfzd"
+            ],
+            "datetime_string": [
+                "datetime_string"
+            ],
+            "string_string": [
+                "string_string"
+            ],
+            "string_array": [
+                "string_array"
+            ],
+            "datetime_int": [
+                "datetime_int"
+            ],
+            "string_float": [
+                "string_float"
+            ],
+            "string_date": [
+                "string_date"
+            ],
+            "datetime_date": [
+                "datetime_date"
+            ],
+            "number_number": [
+                "number_number"
+            ],
+            "number_float": [
+                "number_float"
+            ],
+            "date_date": [
+                "date_date"
+            ],
+            "date_int": [
+                "date_int"
+            ]
+        },
+        "inboundTaskId": null,
+        "taskInstanceId": "3695",
+        "schema": {
+            "fields": {
+                "float_string": {
+                    "id": 13310380,
+                    "isMain": "N",
+                    "name": "float_string",
+                    "required": "N",
+                    "originType": "DOUBLE",
+                    "type": "DOUBLE",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_int_1": {
+                    "id": 13310405,
+                    "isMain": "N",
+                    "name": "date_int_1",
+                    "required": "N",
+                    "originType": "DATE",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "TO_DATE(`date_int`)",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "object_key": {
+                    "id": 13310377,
+                    "isMain": "Y",
+                    "name": "object_key",
+                    "required": "Y",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "UNIQUE_KEY",
+                    "functions": null
+                },
+                "ddzd": {
+                    "id": 13310402,
+                    "isMain": "N",
+                    "name": "ddzd",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "_tags": {
+                    "id": 13310403,
+                    "isMain": "N",
+                    "name": "_tags",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_string": {
+                    "id": 13310387,
+                    "isMain": "N",
+                    "name": "date_string",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_datetime": {
+                    "id": 13310388,
+                    "isMain": "N",
+                    "name": "date_datetime",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "numner_string": {
+                    "id": 13310391,
+                    "isMain": "N",
+                    "name": "numner_string",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "datetime_datetime": {
+                    "id": 13310381,
+                    "isMain": "N",
+                    "name": "datetime_datetime",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "string_datetime": {
+                    "id": 13310399,
+                    "isMain": "N",
+                    "name": "string_datetime",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_string_1": {
+                    "id": 13310406,
+                    "isMain": "N",
+                    "name": "date_string_1",
+                    "required": "N",
+                    "originType": "DATE",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "TO_DATE(`date_string`)",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "number_date": {
+                    "id": 13310392,
+                    "isMain": "N",
+                    "name": "number_date",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "number_datetime": {
+                    "id": 13310393,
+                    "isMain": "N",
+                    "name": "number_datetime",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "stirng_int": {
+                    "id": 13310394,
+                    "isMain": "N",
+                    "name": "stirng_int",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "float_int": {
+                    "id": 13310379,
+                    "isMain": "N",
+                    "name": "float_int",
+                    "required": "N",
+                    "originType": "DOUBLE",
+                    "type": "DOUBLE",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "cc": {
+                    "id": 13310400,
+                    "isMain": "N",
+                    "name": "cc",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "float_float": {
+                    "id": 13310378,
+                    "isMain": "N",
+                    "name": "float_float",
+                    "required": "N",
+                    "originType": "DOUBLE",
+                    "type": "DOUBLE",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "cfzd": {
+                    "id": 13310401,
+                    "isMain": "N",
+                    "name": "cfzd",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_datetime_1": {
+                    "id": 13310407,
+                    "isMain": "N",
+                    "name": "date_datetime_1",
+                    "required": "N",
+                    "originType": "DATE",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "TO_DATE(`date_datetime`)",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "datetime_string": {
+                    "id": 13310383,
+                    "isMain": "N",
+                    "name": "datetime_string",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "string_string": {
+                    "id": 13310398,
+                    "isMain": "N",
+                    "name": "string_string",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "string_array": {
+                    "id": 13310396,
+                    "isMain": "N",
+                    "name": "string_array",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "datetime_int": {
+                    "id": 13310382,
+                    "isMain": "N",
+                    "name": "datetime_int",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "string_float": {
+                    "id": 13310395,
+                    "isMain": "N",
+                    "name": "string_float",
+                    "required": "N",
+                    "originType": "STRING",
+                    "type": "STRING",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "string_date": {
+                    "id": 13310397,
+                    "isMain": "N",
+                    "name": "string_date",
+                    "required": "N",
+                    "originType": "DATE",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "datetime_date": {
+                    "id": 13310384,
+                    "isMain": "N",
+                    "name": "datetime_date",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_date_1": {
+                    "id": 13310404,
+                    "isMain": "N",
+                    "name": "date_date_1",
+                    "required": "N",
+                    "originType": "DATE",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "TO_DATE(`date_date`)",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "number_number": {
+                    "id": 13310389,
+                    "isMain": "N",
+                    "name": "number_number",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "number_float": {
+                    "id": 13310390,
+                    "isMain": "N",
+                    "name": "number_float",
+                    "required": "N",
+                    "originType": "LONG",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_date": {
+                    "id": 13310385,
+                    "isMain": "N",
+                    "name": "date_date",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                },
+                "date_int": {
+                    "id": 13310386,
+                    "isMain": "N",
+                    "name": "date_int",
+                    "required": "N",
+                    "originType": "DATETIME",
+                    "type": "LONG",
+                    "format": null,
+                    "functionExpr": "",
+                    "fieldSign": "COMMON",
+                    "functions": null
+                }
+            },
+            "graphId": 100080,
+            "id": 1201173,
+            "name": "date_type_2",
+            "type": "vertex",
+            "useGdb": "Y",
+            "useHBase": "N",
+            "useSearch": "Y"
+        }
+    },
+    "sparkConfig": null,
+    "extParams": null
+}
